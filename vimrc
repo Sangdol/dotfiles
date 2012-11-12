@@ -199,7 +199,9 @@ nnoremap <silent> <leader>c :set nolist!<CR>
 
 if has("win32unix")
 	" Cygwin
-	source ~/.cygvimrc
+	if filereadable('~/.cygvimrc')
+		source ~/.cygvimrc
+	endif
 endif
 
 " }}}
