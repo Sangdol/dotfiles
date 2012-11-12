@@ -194,3 +194,12 @@ set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
 
 "}}}
+
+" OS Specific {{{
+
+if has("win32unix")
+	" Cygwin
+	source ~/.cygvimrc
+endif
+
+" }}}
