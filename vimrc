@@ -188,7 +188,7 @@ cnoremap Wq<CR> wq<CR>
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Toggle show tabs and trailing spaces (,c)
+" Toggle invisibles
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
@@ -199,7 +199,9 @@ nnoremap <silent> <leader>c :set nolist!<CR>
 
 if has("win32unix")
 	" Cygwin
-	source ~/.cygvimrc
+	if filereadable('~/.cygvimrc')
+		source ~/.cygvimrc
+	endif
 endif
 
 " }}}
