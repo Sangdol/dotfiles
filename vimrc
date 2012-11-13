@@ -171,6 +171,9 @@ nnoremap <leader>h :h <C-r><C-w><CR>
 " Shift tab default action
 inoremap <S-Tab> <Esc><<i
 
+" Yank all
+nnoremap <Leader>a :%y<CR> :echo "All lines are yanked!"<CR>
+
 " Move between windows by <Leader>number
 let i = 1
 while i <= 9
