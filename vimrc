@@ -63,7 +63,8 @@ set directory=~/.vim/swap
 " encoding and line ending settings
 set encoding=utf8
 set fileencodings=utf8,cp949,latin1
-set fileformats="unix,dos"
+set fileformat=unix
+set fileformats=unix,dos
 
 "}}}
 "
@@ -74,7 +75,12 @@ set background=dark
 if has("gui_running")
 	colorscheme Tomorrow-Night
 	set guioptions-=T " Remove Toolbar
-	set guifont=Monaco:h16
+	set guifont=나눔고딕코딩:h13:cHANGEUL
+
+	" Redefine menus for Korean
+	let $LANG = 'ko_KR.UTF-8'
+	source $VIMRUNTIME/delmenu.vim
+	source $VIMRUNTIME/menu.vim
 else
 	colorscheme Tomorrow-Night-Bright
 	" Enable mouse support in terminal
@@ -93,12 +99,17 @@ set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 function! Browser ()
 	let line = getline (".")
 	let line = matchstr (line, "http[^	]*")
-	 if !empty(line)
-		 " TODO: Add if statement for Windows and Cygwin
-		 exec "!open ".line
-	 else
-		 echo "No URL found"
-	 endif
+	if !empty(line)
+		if has("mac")
+			exec "!open ".line
+		elseif has("win32unix")
+			exec "!cygstart ".line
+		elseif has("win32") || has("win64")
+			exec "start ".line
+		endif
+	else
+		echo "No URL found"
+	endif
 endfunction
 
 " Paste Toggle
@@ -137,7 +148,7 @@ nnoremap <silent> <C-t> :tabnew<CR>
 nnoremap <silent> <F10> :call Paste_on_off()<CR>
 set pastetoggle=<F10>
 
-" Edit vimrc \ev
+" Edit vimrc
 nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
 
 " Up and down are more logical with g..
@@ -197,11 +208,13 @@ nnoremap <silent> <leader>c :set nolist!<CR>
 
 " OS Specific {{{
 
+" '~/' is not working. Using '$HOME' instead.
 if has("win32unix")
 	" Cygwin
-	if filereadable('~/.cygvimrc')
+	if filereadable($HOME.'/.cygvimrc')
 		source ~/.cygvimrc
 	endif
 endif
 
 " }}}
+
