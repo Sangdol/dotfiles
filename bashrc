@@ -43,14 +43,13 @@ source ~/.bash_prompt
 # set tab size
 tabs -4
 
-# update locate database
-# http://www.mechanicalgirl.com/post/update-locate-database-for-mac-os-x/
-alias updatedb="sudo /usr/libexec/locate.updatedb"
+# Prevent overwrite(clobbering)
+# http://en.wikipedia.org/wiki/Clobbering
+set -o noclobber
 
-# add bash completion
-# https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+# Screen alert
+if [ "$TERM" = "screen" ]; then
+	echo "[ screen is activated ]"
 fi
 
 # Python server
@@ -60,6 +59,25 @@ serve() {
     open http://localhost:$port
 }
 
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+case $OSTYPE in
+	darwin*)
+		# add bash completion
+		# https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+		if [ -f `brew --prefix`/etc/bash_completion ]; then
+				. `brew --prefix`/etc/bash_completion
+		fi
+
+		# update locate database
+		# http://www.mechanicalgirl.com/post/update-locate-database-for-mac-os-x/
+		alias updatedb="sudo /usr/libexec/locate.updatedb"
+
+		# Setting PATH for Python 2.7
+		# The orginal version is saved in .bash_profile.pysave
+		export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+		;;
+	cygwin)
+		export LANG=ko_KR.UTF-8
+		alias open='cygstart'
+		;;
+esac
+
