@@ -40,3 +40,6 @@ function! Getclip()
 endfunction
 
 nnoremap <silent> <leader>p :call Getclip()<CR>
+
+" Copy all
+nnoremap <leader>a :call Putclip('c', 1, line('$'))<CR> :echo line('$') . ' lines are yanked in Clipboard!'<CR>
