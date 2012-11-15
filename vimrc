@@ -183,7 +183,7 @@ nnoremap <leader>h :h <C-r><C-w><CR>
 inoremap <S-Tab> <Esc><<i
 
 " Yank all
-nnoremap <Leader>a :%y<CR> :echo "All lines are yanked!"<CR>
+nnoremap <Leader>a :%y<CR>
 
 " Move between windows by <Leader>number
 let i = 1
