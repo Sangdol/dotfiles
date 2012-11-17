@@ -18,9 +18,9 @@ alias ls='ls -FG'
 alias ll='ls -alFG'
 
 # grep
-alias grep='grep -G'
-alias fgrep='fgrep -G'
-alias egrep='egrep -G'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # alert for rm, cp, mv
 alias rm='rm -iv'
