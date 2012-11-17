@@ -1,44 +1,11 @@
-##########################
-# 1. Basic Configuration #
-##########################
+# Load files
+source ~/dotfiles/aliases
+source ~/dotfiles/bash_prompt
 
 # history settings
 shopt -s histappend		# append, no overwrite
 HISTSIZE=10000
 HISTFILESIZE=20000
-
-##############
-# 2. Aliases #
-##############
-
-alias vi='vim'
-
-# color and with classfication
-alias ls='ls -FG'
-alias ll='ls -alFG'
-
-# grep
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# alert for rm, cp, mv
-alias rm='rm -iv'
-alias cp='cp -iv'
-alias mv='mv -iv'
-
-# screens
-alias scr='screen -rD'
-
-##################
-# 3. Color & PS1 #
-##################
-
-source ~/.bash_prompt
-
-###########
-# 4. etc  #
-###########
 
 # set tab size
 tabs -4
