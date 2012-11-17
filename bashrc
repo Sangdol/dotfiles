@@ -59,6 +59,21 @@ serve() {
     open http://localhost:$port
 }
 
+# Set tabname
+# https://gist.github.com/3877451
+tabname() {
+  printf "\e]1;$1\a"
+}
+
+cd() {
+  if [[ $# -gt 0 ]]; then
+    builtin cd "$*"
+  else
+    builtin cd
+  fi
+  tabname $(basename $(pwd))
+}
+
 case $OSTYPE in
 	darwin*)
 		# add bash completion
