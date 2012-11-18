@@ -96,9 +96,11 @@ set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 "{{{ Functions
 
 " Open URL in browser
-function! Browser ()
-	let line = getline (".")
-	let line = matchstr (line, "http[^	]*")
+function! Browser()
+	let line = getline(".")
+	let line = matchstr(line, "http[^	]*")
+	" Should escape to prevent replaced with registers
+	let line = escape(line, "#?&;|%")
 	if !empty(line)
 		if has("mac")
 			exec "!open ".line
