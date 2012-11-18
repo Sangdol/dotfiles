@@ -1,9 +1,46 @@
+#
+# Many things from Mathia's dotfiles
+# https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
+#
+
+##
 # Load files
+##
 source ~/dotfiles/aliases
 source ~/dotfiles/bash_prompt
 
+##
+# shopt settings
+# Reference: http://www.gnu.org/software/bash/manual/bash.html#The-Shopt-Builtin
+##
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+# Enable some Bash 4 features when possible:
+# * autocd - cd by just directory name
+# * globstar - Recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null
+done
+
+##
+# etc
+##
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
+
+# Exports
+export EDITOR=vim
+
 # history settings
-shopt -s histappend		# append, no overwrite
 HISTSIZE=10000
 HISTFILESIZE=20000
 
@@ -43,12 +80,6 @@ cd() {
 
 case $OSTYPE in
 	darwin*)
-		# add bash completion
-		# https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
-		if [ -f `brew --prefix`/etc/bash_completion ]; then
-				. `brew --prefix`/etc/bash_completion
-		fi
-
 		# update locate database
 		# http://www.mechanicalgirl.com/post/update-locate-database-for-mac-os-x/
 		alias updatedb="sudo /usr/libexec/locate.updatedb"
