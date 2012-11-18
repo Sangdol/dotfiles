@@ -31,18 +31,22 @@ for option in autocd globstar; do
 done
 
 ##
+# exports
+##
+
+# Default editor
+export EDITOR=vim
+
+# history settings
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+
+##
 # etc
 ##
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
-
-# Exports
-export EDITOR=vim
-
-# history settings
-HISTSIZE=10000
-HISTFILESIZE=20000
 
 # set tab size
 tabs -4
@@ -80,10 +84,6 @@ cd() {
 
 case $OSTYPE in
 	darwin*)
-		# update locate database
-		# http://www.mechanicalgirl.com/post/update-locate-database-for-mac-os-x/
-		alias updatedb="sudo /usr/libexec/locate.updatedb"
-
 		# Setting PATH for Python 2.7
 		# The orginal version is saved in .bash_profile.pysave
 		export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
