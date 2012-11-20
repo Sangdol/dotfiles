@@ -6,8 +6,9 @@
 ##
 # Load files
 ##
-source ~/dotfiles/aliases
-source ~/dotfiles/bash_prompt
+source $HOME/dotfiles/aliases
+source $HOME/dotfiles/bash_prompt
+source $HOME/dotfiles/mvnrc
 
 ##
 # shopt settings
