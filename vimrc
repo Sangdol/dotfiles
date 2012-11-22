@@ -152,6 +152,9 @@ nnoremap <silent> <C-t> :tabnew<CR>
 " Edit vimrc
 nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
 
+" Edit bashrc
+nnoremap <silent> <Leader>eb :tabnew<CR>:e ~/.bashrc<CR>
+
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
