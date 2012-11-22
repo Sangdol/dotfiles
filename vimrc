@@ -178,6 +178,11 @@ nnoremap <silent> <Leader>n :noh<CR>
 " Easy escape
 inoremap jk <Esc>
 
+" Diff shortcut
+nnoremap <silent> <Leader>dl :diffthis<CR> <C-w>l :diffthis<CR> <C-w>h
+nnoremap <silent> <Leader>dh :diffthis<CR> <C-w>h :diffthis<CR> <C-w>l
+nnoremap <silent> <leader>do :diffoff<CR>
+
 " Open help page about a word under cusor
 nnoremap <leader>h :h <C-r><C-w><CR>
 
