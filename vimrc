@@ -114,6 +114,9 @@ function! Browser()
 	endif
 endfunction
 
+" Open browser
+nnoremap <Leader>w :call Browser()<CR>
+
 " Paste Toggle
 let paste_mode = 0 " 0 = normal, 1 = paste
 func! Paste_on_off()
@@ -127,13 +130,13 @@ func! Paste_on_off()
 	return
 endfunc
 
+" Paste Mode!
+nnoremap <silent> <F10> :call Paste_on_off()<CR>
+set pastetoggle=<F10>
 "}}}
 
 "{{{ Mappings
-
-" Open browser
-nnoremap <Leader>w :call Browser()<CR>
-
+"
 " New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
 
@@ -146,10 +149,6 @@ nnoremap <silent> <C-j> :tabprevious<CR>
 " New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
 
-" Paste Mode!
-nnoremap <silent> <F10> :call Paste_on_off()<CR>
-set pastetoggle=<F10>
-
 " Edit vimrc
 nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
 
@@ -158,12 +157,6 @@ nnoremap <silent> k gk
 nnoremap <silent> j gj
 inoremap <silent> <Up> <Esc>gka
 inoremap <silent> <Down> <Esc>gja
-
-" Create Blank Newlines and stay in Normal mode
-nnoremap <silent> zj o<Esc>
-nnoremap <silent> zk O<Esc>
-nnoremap <silent> zh i<Space><Right><Esc>
-nnoremap <silent> zl a<Space><Left><Esc>
 
 " Space will toggle folds!
 nnoremap <space> za
@@ -199,6 +192,7 @@ while i <= 9
 	let i = i + 1
 endwhile
 
+" I'm doing this a lot
 cnoremap W<CR> w<CR>
 cnoremap Q<CR> q<CR>
 cnoremap Q!<CR> q!<CR>
@@ -214,6 +208,11 @@ set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
 
+" Create Blank Newlines and stay in Normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
+nnoremap <silent> zh i<Space><Right><Esc>
+nnoremap <silent> zl a<Space><Left><Esc>
 "}}}
 
 " OS Specific {{{
