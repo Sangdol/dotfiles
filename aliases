@@ -16,6 +16,8 @@ alias v="vim"
 alias vi='vim'
 alias o="open"
 alias oo="open ."
+alias s="svn"
+alias sa="alias sa='svn st | grep "^?" | awk '\''{print $2}'\'' | xargs svn add'" # Add new files
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
