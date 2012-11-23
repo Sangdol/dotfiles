@@ -2,7 +2,10 @@
 " Sangdol's Vim Configuration
 "
 
+" Set RuntimePath
+" https://github.com/tpope/vim-pathogen
 call pathogen#infect()
+Helptags
 
 " Auto Commands {{{
 
