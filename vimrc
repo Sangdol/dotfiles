@@ -2,6 +2,8 @@
 " Sangdol's Vim Configuration
 "
 
+call pathogen#infect()
+
 " Auto Commands {{{
 
 " Automatically cd into the directory that the file is in
@@ -209,7 +211,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Toggle invisibles
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
-nnoremap <silent> <leader>c :set nolist!<CR>
+nnoremap <silent> <leader>i :set nolist!<CR>
 
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
