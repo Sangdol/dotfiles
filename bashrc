@@ -93,6 +93,7 @@ case $OSTYPE in
 	cygwin)
 		export LANG=ko_KR.UTF-8
 		alias open='cygstart'
+		/cygdrive/c/Windows/System32/chcp.com 65001 # Set encoding to UTF-8
 		;;
 esac
 
