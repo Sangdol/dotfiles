@@ -7,6 +7,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
+alias t="cd ~/temp"
 alias d="cd ~/dotfiles"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
@@ -18,7 +19,8 @@ alias vi='vim'
 alias o="open"
 alias oo="open ."
 alias s="svn"
-alias sa="alias sa='svn st | grep "^?" | awk '\''{print $2}'\'' | xargs svn add'" # Add new files
+alias sa='svn st | grep "^?" | awk '\''{print $2}'\'' | xargs svn add' # Add new files
+alias sl="svn log -vl"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
