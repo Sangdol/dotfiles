@@ -1,4 +1,5 @@
 set incsearch
+set ignorecase
 
 " From Vim 7.3, it can yank to and paste from clipboard
 set clipboard=unnamed
