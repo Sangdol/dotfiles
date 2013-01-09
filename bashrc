@@ -25,6 +25,9 @@ shopt -s histappend
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
+# Extended globs http://mywiki.wooledge.org/glob
+shopt -s extglob
+
 # Enable some Bash 4 features when possible:
 # * autocd - cd by just directory name
 # * globstar - Recursive globbing, e.g. `echo **/*.txt`
