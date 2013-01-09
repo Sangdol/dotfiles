@@ -50,6 +50,9 @@ export HISTFILESIZE=20000
 # etc
 ##
 
+# Disable Screen stop function and enable forward search (<Ctrl>-S)
+stty stop ""
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
