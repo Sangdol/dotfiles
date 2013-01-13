@@ -10,6 +10,7 @@ source $HOME/dotfiles/aliases
 source $HOME/dotfiles/bash_prompt
 source $HOME/dotfiles/mvnrc
 source $HOME/dotfiles/functions
+source $HOME/dotfiles/extra
 
 ##
 # shopt settings
