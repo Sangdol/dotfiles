@@ -40,7 +40,7 @@ alias la="ls -lFa ${colorflag}"
 alias lsd='ls -lF ${colorflag} | grep "^d"'
 
 # List only symlinks
-alias lsl='ls -lF ${colorflag} | grep "\->"'
+alias lsl='ls -alF ${colorflag} | grep "\->"'
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
