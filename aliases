@@ -38,12 +38,12 @@ alias la="ls -lFa ${colorflag}"
 
 # List only directories
 lsd() {
-	ls -lF ${colorflag} ${1:-.} | grep "^d"
+	ls -alF ${colorflag} ${1:-.} | grep "^d"
 }
 
 # List only symlinks
 lsl() {
-	ls -lF ${colorflag} ${1:-.} | grep "\->"
+	ls -alF ${colorflag} ${1:-.} | grep "\->"
 }
 
 # Always use color output for `ls`
