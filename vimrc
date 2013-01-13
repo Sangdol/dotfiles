@@ -163,6 +163,8 @@ nnoremap <silent> <Leader>eb :tabnew<CR>:e ~/.bashrc<CR>
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
+vnoremap <silent> k gk
+vnoremap <silent> j gj
 inoremap <silent> <Up> <Esc>gka
 inoremap <silent> <Down> <Esc>gja
 
