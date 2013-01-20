@@ -81,6 +81,11 @@ alias mv='mv -iv'
 # screens
 alias scr='screen -rD'
 
+# Make and cd into directory
+function mcd() {
+	mkdir -p "$1" && cd "$1";
+}
+
 case $OSTYPE in
 	darwin*)
 		# update locate database
