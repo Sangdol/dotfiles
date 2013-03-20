@@ -6,3 +6,7 @@ copy() {
 fname() {
 	find . -iname "*$@*";
 }
+
+hgrep() {
+	history | grep "$@"
+}
