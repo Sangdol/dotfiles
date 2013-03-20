@@ -35,11 +35,6 @@ alias grr="git remote rm"
 alias gpu="git pull"
 alias gcl="git clone"
 
-# SVN
-alias s="svn"
-alias sa='svn st | grep "^?" | awk '\''{print $2}'\'' | xargs svn add' # Add new files
-alias sl="svn log -vl"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
