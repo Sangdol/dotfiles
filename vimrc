@@ -77,8 +77,9 @@ set fileformats=unix,dos
 
 set background=dark
 
+colorscheme desert
+
 if has("gui_running")
-	colorscheme Tomorrow-Night
 	set guioptions-=T " Remove Toolbar
 	set guifont=나눔고딕코딩:h13:cHANGEUL
 
@@ -87,7 +88,6 @@ if has("gui_running")
 	source $VIMRUNTIME/delmenu.vim
 	source $VIMRUNTIME/menu.vim
 else
-	colorscheme Tomorrow-Night-Bright
 	" Enable mouse support in terminal
 	set mouse=a
 endif
@@ -223,6 +223,10 @@ nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 nnoremap <silent> zh i<Space><Right><Esc>
 nnoremap <silent> zl a<Space><Left><Esc>
+
+" Save with root permission inside Vim
+cmap w!! w !sudo tee > /dev/null %
+
 "}}}
 
 " OS Specific {{{
